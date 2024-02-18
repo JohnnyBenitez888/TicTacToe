@@ -6,6 +6,8 @@ public class FormInicio extends javax.swing.JFrame {
     
     public FormInicio() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     

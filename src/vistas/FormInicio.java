@@ -4,21 +4,16 @@ import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
-
 public class FormInicio extends javax.swing.JFrame {
 
-    
     public FormInicio() {
-        this.setUndecorated(true);
+        this.setUndecorated(true);//quita botones min, max y cerrar
         initComponents();
-        this.setResizable(false);
+        this.setResizable(false);//desactiva el maximizar pantalla
         this.setLocationRelativeTo(null);
+        PanelFondo.requestFocus(); //quita el cursor del medio de la app // sin focus
     }
 
-    public void init(){
-        PanelFondo.requestFocus();
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,6 +61,11 @@ public class FormInicio extends javax.swing.JFrame {
         txtJugador2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtJugador2.setText("JUGADOR2");
         txtJugador2.setBorder(null);
+        txtJugador2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtJugador2FocusGained(evt);
+            }
+        });
         txtJugador2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtJugador2MouseEntered(evt);
@@ -84,6 +84,11 @@ public class FormInicio extends javax.swing.JFrame {
         txtJugador1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtJugador1.setText("JUGADOR1");
         txtJugador1.setBorder(null);
+        txtJugador1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                txtJugador1FocusGained(evt);
+            }
+        });
         txtJugador1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 txtJugador1MouseEntered(evt);
@@ -109,37 +114,57 @@ public class FormInicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    //cerrar la app al cliquear la X
     private void lblCierreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCierreMouseClicked
         System.exit(0);
     }//GEN-LAST:event_lblCierreMouseClicked
 
+    //cambia de color rojo la X al pasar el mouse
     private void lblCierreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCierreMouseEntered
-       lblCierre.setForeground(Color.red);
+        lblCierre.setForeground(Color.red);
     }//GEN-LAST:event_lblCierreMouseEntered
 
+    //vuelve al color original la X al quitar el mouse
     private void lblCierreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCierreMouseExited
-        lblCierre.setForeground(new Color(240,192,255));
+        lblCierre.setForeground(new Color(240, 192, 255));
     }//GEN-LAST:event_lblCierreMouseExited
 
+    //cambia de color los bordes al pasar el mouse
     private void txtJugador1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador1MouseEntered
-        Border border = BorderFactory.createLineBorder(new Color(52,136,235),2);
+        Border border = BorderFactory.createLineBorder(new Color(52, 136, 235), 2);
         txtJugador1.setBorder(border);
     }//GEN-LAST:event_txtJugador1MouseEntered
 
+    //vuelve al borde original al quitar el mouse
     private void txtJugador1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador1MouseExited
         txtJugador1.setBorder(null);
     }//GEN-LAST:event_txtJugador1MouseExited
 
+     //cambia de color los bordes al pasar el mouse
     private void txtJugador2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador2MouseEntered
-        Border border = BorderFactory.createLineBorder(new Color(165,40,174),2);
+        Border border = BorderFactory.createLineBorder(new Color(165, 40, 174), 2);
         txtJugador2.setBorder(border);
     }//GEN-LAST:event_txtJugador2MouseEntered
 
+    //vuelve al borde original al quitar el mouse
     private void txtJugador2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador2MouseExited
         txtJugador2.setBorder(null);
     }//GEN-LAST:event_txtJugador2MouseExited
 
-   
+    //Borra el texto JUGADOR1 al hacer clic 
+    private void txtJugador1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador1FocusGained
+        if(txtJugador1.getText().equals("JUGADOR1")){
+            txtJugador1.setText("");
+        }
+    }//GEN-LAST:event_txtJugador1FocusGained
+
+    //Borra el texto JUGADOR2 al hacer clic 
+    private void txtJugador2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador2FocusGained
+       if(txtJugador2.getText().equals("JUGADOR2")){
+            txtJugador2.setText("");
+        }
+    }//GEN-LAST:event_txtJugador2FocusGained
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;

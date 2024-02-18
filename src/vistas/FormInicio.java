@@ -28,6 +28,11 @@ public class FormInicio extends javax.swing.JFrame {
 
         PanelFondo.setBackground(new java.awt.Color(14, 19, 49));
         PanelFondo.setPreferredSize(new java.awt.Dimension(416, 315));
+        PanelFondo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                PanelFondoMousePressed(evt);
+            }
+        });
         PanelFondo.setLayout(null);
 
         lblCierre.setFont(new java.awt.Font("MS UI Gothic", 1, 24)); // NOI18N
@@ -65,6 +70,9 @@ public class FormInicio extends javax.swing.JFrame {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtJugador2FocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtJugador2FocusLost(evt);
+            }
         });
         txtJugador2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -87,6 +95,9 @@ public class FormInicio extends javax.swing.JFrame {
         txtJugador1.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtJugador1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                txtJugador1FocusLost(evt);
             }
         });
         txtJugador1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,6 +175,25 @@ public class FormInicio extends javax.swing.JFrame {
             txtJugador2.setText("");
         }
     }//GEN-LAST:event_txtJugador2FocusGained
+
+    //volvemos al texto original JUGADOR1 si el user no agregó nada
+    private void txtJugador1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador1FocusLost
+        if(txtJugador1.getText().equals("")){
+            txtJugador1.setText("JUGADOR1");
+        }
+    }//GEN-LAST:event_txtJugador1FocusLost
+
+    //volvemos al texto original JUGADOR2 si el user no agregó nada
+    private void txtJugador2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador2FocusLost
+        if(txtJugador2.getText().equals("")){
+            txtJugador2.setText("JUGADOR2");
+        }
+    }//GEN-LAST:event_txtJugador2FocusLost
+
+    //Al hacer clic en el fondoPanel centramos el focus en el panel
+    private void PanelFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelFondoMousePressed
+       PanelFondo.requestFocus();
+    }//GEN-LAST:event_PanelFondoMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -20,6 +20,9 @@ public class FormInicio extends javax.swing.JFrame {
 
         PanelFondo = new javax.swing.JPanel();
         lblCierre = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtJugador2 = new javax.swing.JTextField();
+        txtJugador1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -44,6 +47,30 @@ public class FormInicio extends javax.swing.JFrame {
         });
         PanelFondo.add(lblCierre);
         lblCierre.setBounds(390, 0, 20, 25);
+
+        jLabel1.setFont(new java.awt.Font("MS PGothic", 1, 28)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(230, 251, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("TIK TAC TOE");
+        PanelFondo.add(jLabel1);
+        jLabel1.setBounds(0, 30, 420, 40);
+
+        txtJugador2.setBackground(new java.awt.Color(249, 230, 254));
+        txtJugador2.setFont(new java.awt.Font("MS PGothic", 1, 28)); // NOI18N
+        txtJugador2.setForeground(new java.awt.Color(202, 105, 220));
+        txtJugador2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtJugador2.setText("JUGADOR2");
+        PanelFondo.add(txtJugador2);
+        txtJugador2.setBounds(100, 160, 230, 40);
+        txtJugador2.getAccessibleContext().setAccessibleName("");
+
+        txtJugador1.setBackground(new java.awt.Color(214, 252, 249));
+        txtJugador1.setFont(new java.awt.Font("MS PGothic", 1, 28)); // NOI18N
+        txtJugador1.setForeground(new java.awt.Color(101, 175, 245));
+        txtJugador1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtJugador1.setText("JUGADOR1");
+        PanelFondo.add(txtJugador1);
+        txtJugador1.setBounds(100, 100, 230, 40);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -75,6 +102,9 @@ public class FormInicio extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelFondo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCierre;
+    private javax.swing.JTextField txtJugador1;
+    private javax.swing.JTextField txtJugador2;
     // End of variables declaration//GEN-END:variables
 }

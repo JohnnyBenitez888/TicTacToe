@@ -1,6 +1,8 @@
 package vistas;
 
 import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.border.Border;
 
 
 public class FormInicio extends javax.swing.JFrame {
@@ -13,6 +15,9 @@ public class FormInicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
     }
 
+    public void init(){
+        PanelFondo.requestFocus();
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,6 +65,15 @@ public class FormInicio extends javax.swing.JFrame {
         txtJugador2.setForeground(new java.awt.Color(202, 105, 220));
         txtJugador2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtJugador2.setText("JUGADOR2");
+        txtJugador2.setBorder(null);
+        txtJugador2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtJugador2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtJugador2MouseExited(evt);
+            }
+        });
         PanelFondo.add(txtJugador2);
         txtJugador2.setBounds(100, 160, 230, 40);
         txtJugador2.getAccessibleContext().setAccessibleName("");
@@ -69,6 +83,15 @@ public class FormInicio extends javax.swing.JFrame {
         txtJugador1.setForeground(new java.awt.Color(101, 175, 245));
         txtJugador1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtJugador1.setText("JUGADOR1");
+        txtJugador1.setBorder(null);
+        txtJugador1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                txtJugador1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                txtJugador1MouseExited(evt);
+            }
+        });
         PanelFondo.add(txtJugador1);
         txtJugador1.setBounds(100, 100, 230, 40);
 
@@ -97,6 +120,24 @@ public class FormInicio extends javax.swing.JFrame {
     private void lblCierreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCierreMouseExited
         lblCierre.setForeground(new Color(240,192,255));
     }//GEN-LAST:event_lblCierreMouseExited
+
+    private void txtJugador1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador1MouseEntered
+        Border border = BorderFactory.createLineBorder(new Color(52,136,235),2);
+        txtJugador1.setBorder(border);
+    }//GEN-LAST:event_txtJugador1MouseEntered
+
+    private void txtJugador1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador1MouseExited
+        txtJugador1.setBorder(null);
+    }//GEN-LAST:event_txtJugador1MouseExited
+
+    private void txtJugador2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador2MouseEntered
+        Border border = BorderFactory.createLineBorder(new Color(165,40,174),2);
+        txtJugador2.setBorder(border);
+    }//GEN-LAST:event_txtJugador2MouseEntered
+
+    private void txtJugador2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador2MouseExited
+        txtJugador2.setBorder(null);
+    }//GEN-LAST:event_txtJugador2MouseExited
 
    
 

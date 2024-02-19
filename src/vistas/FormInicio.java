@@ -151,6 +151,9 @@ public class FormInicio extends javax.swing.JFrame {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 lblIniciarMouseExited(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                lblIniciarMousePressed(evt);
+            }
         });
 
         javax.swing.GroupLayout PanelBotonLayout = new javax.swing.GroupLayout(PanelBoton);
@@ -301,6 +304,14 @@ public class FormInicio extends javax.swing.JFrame {
     private void lblIniciarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIniciarMouseExited
         PanelBoton.setBackground(new Color(42, 22, 79));
     }//GEN-LAST:event_lblIniciarMouseExited
+
+    //llamamos al JFrame TicTacToe con el boton Iniciar
+    private void lblIniciarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIniciarMousePressed
+       this.dispose();
+       
+       FormTicTacToe tic = new FormTicTacToe();
+       tic.setVisible(true);
+    }//GEN-LAST:event_lblIniciarMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

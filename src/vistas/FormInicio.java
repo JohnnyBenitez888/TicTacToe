@@ -9,9 +9,18 @@ public class FormInicio extends javax.swing.JFrame {
     public FormInicio() {
         this.setUndecorated(true);//quita botones min, max y cerrar
         initComponents();
+        init();
+    }
+
+    //metodo para iniciar algunos metodos de clases
+    private void init() {
         this.setResizable(false);//desactiva el maximizar pantalla
         this.setLocationRelativeTo(null);
         PanelFondo.requestFocus(); //quita el cursor del medio de la app // sin focus
+
+        //Agregar borde al Boton iniciar
+        Border borde = BorderFactory.createLineBorder(new Color(243, 211, 246), 2);
+        PanelBoton.setBorder(borde);
     }
 
     @SuppressWarnings("unchecked")
@@ -23,6 +32,8 @@ public class FormInicio extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         txtJugador2 = new javax.swing.JTextField();
         txtJugador1 = new javax.swing.JTextField();
+        PanelBoton = new javax.swing.JPanel();
+        lblIniciar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -121,6 +132,36 @@ public class FormInicio extends javax.swing.JFrame {
         PanelFondo.add(txtJugador1);
         txtJugador1.setBounds(100, 100, 230, 40);
 
+        PanelBoton.setBackground(new java.awt.Color(42, 22, 79));
+
+        lblIniciar.setFont(new java.awt.Font("MS PGothic", 1, 20)); // NOI18N
+        lblIniciar.setForeground(new java.awt.Color(241, 227, 252));
+        lblIniciar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblIniciar.setText("INICIAR");
+        lblIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblIniciar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lblIniciarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lblIniciarMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PanelBotonLayout = new javax.swing.GroupLayout(PanelBoton);
+        PanelBoton.setLayout(PanelBotonLayout);
+        PanelBotonLayout.setHorizontalGroup(
+            PanelBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblIniciar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 160, Short.MAX_VALUE)
+        );
+        PanelBotonLayout.setVerticalGroup(
+            PanelBotonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblIniciar, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+        );
+
+        PanelFondo.add(PanelBoton);
+        PanelBoton.setBounds(130, 230, 160, 50);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -161,7 +202,7 @@ public class FormInicio extends javax.swing.JFrame {
         txtJugador1.setBorder(null);
     }//GEN-LAST:event_txtJugador1MouseExited
 
-     //cambia de color los bordes al pasar el mouse
+    //cambia de color los bordes al pasar el mouse
     private void txtJugador2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtJugador2MouseEntered
         Border border = BorderFactory.createLineBorder(new Color(165, 40, 174), 2);
         txtJugador2.setBorder(border);
@@ -174,63 +215,75 @@ public class FormInicio extends javax.swing.JFrame {
 
     //Borra el texto JUGADOR1 al hacer clic 
     private void txtJugador1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador1FocusGained
-        if(txtJugador1.getText().equals("JUGADOR1")){
+        if (txtJugador1.getText().equals("JUGADOR1")) {
             txtJugador1.setText("");
         }
     }//GEN-LAST:event_txtJugador1FocusGained
 
     //Borra el texto JUGADOR2 al hacer clic 
     private void txtJugador2FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador2FocusGained
-       if(txtJugador2.getText().equals("JUGADOR2")){
+        if (txtJugador2.getText().equals("JUGADOR2")) {
             txtJugador2.setText("");
         }
     }//GEN-LAST:event_txtJugador2FocusGained
 
     //volvemos al texto original JUGADOR1 si el user no agregó nada
     private void txtJugador1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador1FocusLost
-        if(txtJugador1.getText().equals("")){
+        if (txtJugador1.getText().equals("")) {
             txtJugador1.setText("JUGADOR1");
         }
     }//GEN-LAST:event_txtJugador1FocusLost
 
     //volvemos al texto original JUGADOR2 si el user no agregó nada
     private void txtJugador2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtJugador2FocusLost
-        if(txtJugador2.getText().equals("")){
+        if (txtJugador2.getText().equals("")) {
             txtJugador2.setText("JUGADOR2");
         }
     }//GEN-LAST:event_txtJugador2FocusLost
 
     //Al hacer clic en el fondoPanel centramos el focus en el panel
     private void PanelFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelFondoMousePressed
-       PanelFondo.requestFocus();
+        PanelFondo.requestFocus();
     }//GEN-LAST:event_PanelFondoMousePressed
 
     //Convertir cada caracter en mayusculas y permitir solo 8 caracteres (JUGADOR1)
     private void txtJugador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJugador1KeyTyped
         //mayusculas
-        char unChar =Character.toUpperCase( evt.getKeyChar());
+        char unChar = Character.toUpperCase(evt.getKeyChar());
         evt.setKeyChar(unChar);
         //solo 8 caracteres
-        if(txtJugador1.getText().length() >= 8)
+        if (txtJugador1.getText().length() >= 8) {
             evt.consume();//ignora evento.. no se puede escribir más con el teclado
-        
+        }
     }//GEN-LAST:event_txtJugador1KeyTyped
 
     //Convertir cada caracter en mayusculas y permitir solo 8 caracteres (JUGADOR2)
     private void txtJugador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJugador2KeyTyped
         //mayusculas
-        char unChar =Character.toUpperCase( evt.getKeyChar());
+        char unChar = Character.toUpperCase(evt.getKeyChar());
         evt.setKeyChar(unChar);
         //solo 8 caracteres
-        if(txtJugador2.getText().length() >= 8)
+        if (txtJugador2.getText().length() >= 8)
             evt.consume();//ignora evento.. no se puede escribir más con el teclado
     }//GEN-LAST:event_txtJugador2KeyTyped
 
+    //Cambiar de color el boton al pasar el mouse
+    private void lblIniciarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIniciarMouseEntered
+        PanelBoton.setBackground(new Color(126, 49, 196));
+    }//GEN-LAST:event_lblIniciarMouseEntered
+
+    //volver al color original al quitar el mouse del boton
+    private void lblIniciarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIniciarMouseExited
+        PanelBoton.setBackground(new Color(42, 22, 79));
+    }//GEN-LAST:event_lblIniciarMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel PanelBoton;
     private javax.swing.JPanel PanelFondo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCierre;
+    private javax.swing.JLabel lblIniciar;
     private javax.swing.JTextField txtJugador1;
     private javax.swing.JTextField txtJugador2;
     // End of variables declaration//GEN-END:variables

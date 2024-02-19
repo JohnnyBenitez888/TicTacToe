@@ -5,7 +5,7 @@ import javax.swing.BorderFactory;
 import javax.swing.border.Border;
 
 public class FormInicio extends javax.swing.JFrame {
-
+    
     public FormInicio() {
         this.setUndecorated(true);//quita botones min, max y cerrar
         initComponents();
@@ -16,13 +16,14 @@ public class FormInicio extends javax.swing.JFrame {
     private void init() {
         this.setResizable(false);//desactiva el maximizar pantalla
         this.setLocationRelativeTo(null);
+        this.setBackground(new Color(0,0,0,0));//hacer transparente las esquinas del PanelFondo
         PanelFondo.requestFocus(); //quita el cursor del medio de la app // sin focus
-
+        PanelFondo.setOpaque(false);
         //Agregar borde al Boton iniciar
         Border borde = BorderFactory.createLineBorder(new Color(243, 211, 246), 2);
         PanelBoton.setBorder(borde);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,7 +67,7 @@ public class FormInicio extends javax.swing.JFrame {
             }
         });
         PanelFondo.add(lblCierre);
-        lblCierre.setBounds(390, 0, 20, 25);
+        lblCierre.setBounds(390, 10, 20, 25);
 
         jLabel1.setFont(new java.awt.Font("MS PGothic", 1, 28)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(230, 251, 255));

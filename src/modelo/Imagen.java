@@ -20,6 +20,7 @@ public class Imagen extends JLabel{
             ImageIcon imagen = new ImageIcon(rutaAbsoluta);
             g.drawImage(imagen.getImage(), 0, 0, this.getWidth(), this.getHeight(),null);
         }
+        g.dispose();
     }
 
     

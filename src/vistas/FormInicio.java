@@ -27,13 +27,17 @@ public class FormInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        PanelFondo = new javax.swing.JPanel();
+        PanelFondo = new modelo.PanelRedondeado();
         lblCierre = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtJugador2 = new javax.swing.JTextField();
         txtJugador1 = new javax.swing.JTextField();
         PanelBoton = new javax.swing.JPanel();
         lblIniciar = new javax.swing.JLabel();
+        imagen1 = new modelo.Imagen();
+        imagen2 = new modelo.Imagen();
+        imagen3 = new modelo.Imagen();
+        imagen4 = new modelo.Imagen();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -162,6 +166,26 @@ public class FormInicio extends javax.swing.JFrame {
         PanelFondo.add(PanelBoton);
         PanelBoton.setBounds(130, 230, 160, 50);
 
+        imagen1.setText("imagen1");
+        imagen1.setRuta("/resourses/Circulo.png");
+        PanelFondo.add(imagen1);
+        imagen1.setBounds(340, 160, 40, 40);
+
+        imagen2.setText("imagen1");
+        imagen2.setRuta("/resourses/JugadorEquis.png");
+        PanelFondo.add(imagen2);
+        imagen2.setBounds(40, 100, 40, 40);
+
+        imagen3.setText("imagen1");
+        imagen3.setRuta("/resourses/JugadorCirculo.png");
+        PanelFondo.add(imagen3);
+        imagen3.setBounds(40, 160, 40, 40);
+
+        imagen4.setText("imagen1");
+        imagen4.setRuta("/resourses/Equis.png");
+        PanelFondo.add(imagen4);
+        imagen4.setBounds(340, 100, 40, 40);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -281,6 +305,10 @@ public class FormInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel PanelBoton;
     private javax.swing.JPanel PanelFondo;
+    private modelo.Imagen imagen1;
+    private modelo.Imagen imagen2;
+    private modelo.Imagen imagen3;
+    private modelo.Imagen imagen4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblCierre;
     private javax.swing.JLabel lblIniciar;

@@ -82,6 +82,11 @@ public class FormInicio extends javax.swing.JFrame {
                 txtJugador2MouseExited(evt);
             }
         });
+        txtJugador2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJugador2KeyTyped(evt);
+            }
+        });
         PanelFondo.add(txtJugador2);
         txtJugador2.setBounds(100, 160, 230, 40);
         txtJugador2.getAccessibleContext().setAccessibleName("");
@@ -106,6 +111,11 @@ public class FormInicio extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 txtJugador1MouseExited(evt);
+            }
+        });
+        txtJugador1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtJugador1KeyTyped(evt);
             }
         });
         PanelFondo.add(txtJugador1);
@@ -194,6 +204,27 @@ public class FormInicio extends javax.swing.JFrame {
     private void PanelFondoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_PanelFondoMousePressed
        PanelFondo.requestFocus();
     }//GEN-LAST:event_PanelFondoMousePressed
+
+    //Convertir cada caracter en mayusculas y permitir solo 8 caracteres (JUGADOR1)
+    private void txtJugador1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJugador1KeyTyped
+        //mayusculas
+        char unChar =Character.toUpperCase( evt.getKeyChar());
+        evt.setKeyChar(unChar);
+        //solo 8 caracteres
+        if(txtJugador1.getText().length() >= 8)
+            evt.consume();//ignora evento.. no se puede escribir más con el teclado
+        
+    }//GEN-LAST:event_txtJugador1KeyTyped
+
+    //Convertir cada caracter en mayusculas y permitir solo 8 caracteres (JUGADOR2)
+    private void txtJugador2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtJugador2KeyTyped
+        //mayusculas
+        char unChar =Character.toUpperCase( evt.getKeyChar());
+        evt.setKeyChar(unChar);
+        //solo 8 caracteres
+        if(txtJugador2.getText().length() >= 8)
+            evt.consume();//ignora evento.. no se puede escribir más con el teclado
+    }//GEN-LAST:event_txtJugador2KeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

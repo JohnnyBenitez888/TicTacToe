@@ -3,6 +3,8 @@ package vistas;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.border.Border;
+import modelo.Jugador;
+import modelo.TipoImagen;
 
 public class FormInicio extends javax.swing.JFrame {
     
@@ -309,7 +311,20 @@ public class FormInicio extends javax.swing.JFrame {
     private void lblIniciarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblIniciarMousePressed
        this.dispose();
        
-       FormTicTacToe tic = new FormTicTacToe();
+       Jugador jugador1 = new Jugador(TipoImagen.EQUIS);
+       if(txtJugador1.getText().equals("")){
+           jugador1.setNombre("JUGADOR1");
+       }else{
+           jugador1.setNombre(txtJugador1.getText());
+       }
+       Jugador jugador2 = new Jugador(TipoImagen.CIRCULO);
+       if(txtJugador2.getText().equals("")){
+           jugador2.setNombre("JUGADOR2");
+       }else{
+           jugador2.setNombre(txtJugador2.getText());
+       }
+       
+       FormTicTacToe tic = new FormTicTacToe(jugador1, jugador2);
        tic.setVisible(true);
     }//GEN-LAST:event_lblIniciarMousePressed
 

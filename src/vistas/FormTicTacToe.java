@@ -2,11 +2,13 @@ package vistas;
 
 import java.awt.Color;
 import modelo.Jugador;
+import modelo.Tablero;
 
 public class FormTicTacToe extends javax.swing.JFrame {
 
     private Jugador jugador1;
     private Jugador jugador2;
+    private Tablero tablero;
 
     public FormTicTacToe(Jugador jugador1, Jugador jugador2) {
         this.jugador1 = jugador1;
@@ -21,6 +23,17 @@ public class FormTicTacToe extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         lblNombreJ1.setText(jugador1.getNombre());//Setear el label con el nombre del jugador1
         lblNombreJ2.setText(jugador2.getNombre());//Setear el label con el nombre del jugador2
+        tablero = new Tablero();
+        tablero.setJugador1(jugador1);
+        tablero.setJugador2(jugador2);
+        tablero.setAlturaCI(100);
+        tablero.setAnchoCI(100);
+        tablero.setMargen(5);
+        tablero.setColorCI(new Color(14,19,43));
+        tablero.setColorTablero(new Color(239,180,255));
+        tablero.setLocation(40, 150);
+        tablero.crearTablero();
+        tablero.setVisible(true);
     }
 
     @SuppressWarnings("unchecked")

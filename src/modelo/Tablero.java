@@ -13,7 +13,7 @@ public class Tablero extends JPanel {
     private Jugador jugador1;
     private Jugador jugador2;
 
-    private Tablero() {
+    public Tablero() {
         init();
     }
 
@@ -30,6 +30,7 @@ public class Tablero extends JPanel {
     public void crearTablero(){
         setLayout(null);
         setSize(anchoCI*3+margen*4, alturaCI*3+margen*4);
+        setBackground(colorTablero);
     }
     
     public int getAnchoCI() {

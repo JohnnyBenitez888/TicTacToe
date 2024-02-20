@@ -27,29 +27,29 @@ public class Tablero extends JPanel {
         jugador2 = new Jugador();
     }
 
-    public void crearTablero(){
+    public void crearTablero() {
         setLayout(null);
-        setSize(anchoCI*3+margen*4, alturaCI*3+margen*4);
+        setSize(anchoCI * 3 + margen * 4, alturaCI * 3 + margen * 4);
         setBackground(colorTablero);
         crearCuadrosInternos();
     }
-    
-    private void crearCuadrosInternos(){
+
+    private void crearCuadrosInternos() {
         int x = margen;
         int y = margen;
-        
+
         for (int i = 0; i < 3; i++) {
             x = margen;
             for (int j = 0; j < 3; j++) {
-                Cuadro cuadro = new Cuadro(anchoCI,alturaCI, colorCI);
-                setLocation(x, y);
+                Cuadro cuadro = new Cuadro(anchoCI, alturaCI, colorCI);
+                cuadro.setLocation(x, y);
                 add(cuadro);
-                x+=(anchoCI+margen);
+                x += (anchoCI + margen);
             }
-            y+=(alturaCI+margen);
+            y += (alturaCI + margen);
         }
     }
-    
+
     public int getAnchoCI() {
         return anchoCI;
     }
@@ -106,5 +106,4 @@ public class Tablero extends JPanel {
         this.jugador2 = jugador2;
     }
 
-    
 }

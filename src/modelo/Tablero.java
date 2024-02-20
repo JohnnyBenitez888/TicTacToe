@@ -31,6 +31,23 @@ public class Tablero extends JPanel {
         setLayout(null);
         setSize(anchoCI*3+margen*4, alturaCI*3+margen*4);
         setBackground(colorTablero);
+        crearCuadrosInternos();
+    }
+    
+    private void crearCuadrosInternos(){
+        int x = margen;
+        int y = margen;
+        
+        for (int i = 0; i < 3; i++) {
+            x = margen;
+            for (int j = 0; j < 3; j++) {
+                Cuadro cuadro = new Cuadro(anchoCI,alturaCI, colorCI);
+                setLocation(x, y);
+                add(cuadro);
+                x+=(anchoCI+margen);
+            }
+            y+=(alturaCI+margen);
+        }
     }
     
     public int getAnchoCI() {

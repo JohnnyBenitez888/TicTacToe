@@ -1,6 +1,8 @@
 package modelo;
 
 import java.awt.Color;
+import java.awt.Cursor;
+import java.util.ArrayList;
 import javax.swing.JPanel;
 
 public class Tablero extends JPanel {
@@ -12,6 +14,7 @@ public class Tablero extends JPanel {
     private Color colorCI;
     private Jugador jugador1;
     private Jugador jugador2;
+    private ArrayList<Cuadro> cuadros;
 
     public Tablero() {
         init();
@@ -25,6 +28,7 @@ public class Tablero extends JPanel {
         margen = 6;
         jugador1 = new Jugador();
         jugador2 = new Jugador();
+        cuadros = new ArrayList();
     }
 
     public void crearTablero() {
@@ -42,14 +46,27 @@ public class Tablero extends JPanel {
             x = margen;
             for (int j = 0; j < 3; j++) {
                 Cuadro cuadro = new Cuadro(anchoCI, alturaCI, colorCI);
+                cuadro.setCursor(new Cursor(Cursor.HAND_CURSOR));//el mouse cambia a mano al pasar por los cuadros
                 cuadro.setLocation(x, y);
                 add(cuadro);
+                cuadros.add(cuadro);
+                
                 x += (anchoCI + margen);
             }
             y += (alturaCI + margen);
         }
     }
 
+    public ArrayList<Cuadro> getCuadros() {
+        return cuadros;
+    }
+
+    public void setCuadros(ArrayList<Cuadro> cuadros) {
+        this.cuadros = cuadros;
+    }
+
+    
+    
     public int getAnchoCI() {
         return anchoCI;
     }

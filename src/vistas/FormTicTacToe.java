@@ -34,6 +34,8 @@ public class FormTicTacToe extends javax.swing.JFrame {
         tablero.setLocation(40, 150);
         tablero.crearTablero();
         tablero.setVisible(true);
+        
+        PanelFondo.add(tablero);//agregamos el tablero al panel
     }
 
     @SuppressWarnings("unchecked")

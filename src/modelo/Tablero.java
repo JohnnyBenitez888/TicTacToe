@@ -53,6 +53,7 @@ public class Tablero extends JPanel {
                 cuadro.setLocation(x, y);
                 add(cuadro);
                 cuadros.add(cuadro);
+                crearEventosCuadros(cuadro);
                 
                 x += (anchoCI + margen);
             }
@@ -64,27 +65,24 @@ public class Tablero extends JPanel {
         MouseListener evento = new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
-                
+                cuadro.setTipoImagen(TipoImagen.CIRCULO);
+                cuadro.repaint();
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                
             }
 
             @Override
             public void mouseEntered(MouseEvent e) {
-                
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                
             }
         };
         cuadro.addMouseListener(evento);

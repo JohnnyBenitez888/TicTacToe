@@ -23,6 +23,7 @@ public class FormTicTacToe extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         lblNombreJ1.setText(jugador1.getNombre());//Setear el label con el nombre del jugador1
         lblNombreJ2.setText(jugador2.getNombre());//Setear el label con el nombre del jugador2
+        //modificaciones al tablero
         tablero = new Tablero();
         tablero.setJugador1(jugador1);
         tablero.setJugador2(jugador2);

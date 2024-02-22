@@ -87,6 +87,7 @@ public class Tablero extends JPanel {
                 
             }
         };
+        cuadro.addMouseListener(evento);
     }
 
     public ArrayList<Cuadro> getCuadros() {
